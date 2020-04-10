@@ -27,5 +27,5 @@ Ou
 
 > npm start
 
-⚠Obs: Para conseguir usar as funcionalidades do projeto você precisa [instalar a api feita em node](https://github.com/adilier/desafio-conceitos-node) e deixe os 2 projetos rodando
+⚠Obs: Para conseguir usar as funcionalidades do projeto você precisa [instalar a api feita em node](https://github.com/adilier/desafio-conceitos-node) e deixar os 2 projetos rodando ao mesmo tempo
 
