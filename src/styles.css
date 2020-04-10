@@ -1,25 +1,36 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
 }
 
 body {
   font-size: 14px;
+  background-color: #24292E;
 }
 
-div {
-  width: 100%;
-  margin: 20px;
+div ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 div li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #2F363D;
+  padding: 13px 20px;
+  margin-bottom: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  color: #fff;
+  animation-name: card;
+  animation-duration: 0.5s;
 }
 
-div li + li {
-  margin-top: 15px;
+.container-custom{
+  padding-top: 50px;
 }
 
 button {
@@ -30,10 +41,62 @@ button {
   cursor: pointer;
   margin-top: 15px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  filter: brightness(90%);
 }
 
 div li button {
-  margin: 0 15px;
+  margin: 0;
   background: #ca4949;
+  
+}
+
+div li h2 {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+div li .techs {
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+div li .url {
+  margin-bottom: 5px;
+  color: #C8CCDC;
+  text-decoration: solid;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+div li .url:hover {
+  color: rgb(185, 188, 202);
+}
+
+.buttonIcon{
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+@media (max-width: 991px){
+  div ul{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px){
+  div ul{
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes card {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

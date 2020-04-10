@@ -1,29 +1,58 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { FiTrash2, FiPlus } from 'react-icons/fi'
+
+import api from './services/api'
 
 import "./styles.css";
 
 function App() {
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(() => {
+    api.get('/repositories').then(res => {
+      setRepositories(res.data);
+    });
+  },[]);
+
   async function handleAddRepository() {
-    // TODO
+    const res = await api.post('/repositories', {
+      title: "Back-end com node",
+      url: "https://github.com/adilier/desafio-conceitos-node",
+      techs: ["Node", "Express", "TypeScript"]
+    });
+
+    const repository = res.data;
+
+    setRepositories([...repositories, repository]);
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    await api.delete(`/repositories/${id}`);
+
+    const addRepositories = repositories.filter(
+      repository => repository.id !== id
+    )
+
+    setRepositories(addRepositories);
   }
 
   return (
-    <div>
-      <ul data-testid="repository-list">
-        <li>
-          Repositório 1
-
-          <button onClick={() => handleRemoveRepository(1)}>
-            Remover
-          </button>
-        </li>
-      </ul>
-
-      <button onClick={handleAddRepository}>Adicionar</button>
+    <div className="container container-custom">
+        <ul data-testid="repository-list">
+          {
+            repositories.map(repository => (
+              <li key={repository.id} className="listItem">
+                <h2>{repository.title}</h2>
+                <p className="techs">{repository.techs.join(', ')}</p>
+                <a href={repository.url} className="url" target="_blank" rel="noopener noreferrer">Acessar repositório</a>
+                <button onClick={() => handleRemoveRepository(repository.id)}>
+                  Remover <FiTrash2 className="buttonIcon"/>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      <button onClick={handleAddRepository}>Adicionar <FiPlus className="buttonIcon"/></button>
     </div>
   );
 }
