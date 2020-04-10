@@ -33,20 +33,6 @@ div li {
   padding-top: 50px;
 }
 
-button {
-  background: #7159c1;
-  color: #fff;
-  border: 0;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 15px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-}
-
 button:hover {
   filter: brightness(90%);
 }
@@ -54,7 +40,15 @@ button:hover {
 div li button {
   margin: 0;
   background: #ca4949;
-  
+  color: #fff;
+  border: 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
 }
 
 div li h2 {
@@ -84,10 +78,68 @@ div li .url:hover {
   margin-left: 5px;
 }
 
+form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  align-items: end;
+  justify-content: center;
+  background-color: #2F363D;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 13px 20px;
+}
+
+form div{
+  display: grid;
+  align-items: center;
+  justify-content: left;
+}
+
+input{
+  margin-top: 1px;
+  margin-bottom: 5px;
+  background: #24292E !important;
+  border: solid 1px white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  width: 400px;
+  color: white;
+}
+
+input::placeholder{
+  color: rgb(146, 146, 146) !important;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.containerButton{
+  display: flex;
+}
+
+.buttonForm{
+  width: 200px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: solid 1px #7159c1;
+  background-color: #7159c1;
+  color: white;
+  margin-top: 10px;
+}
+
 @media (max-width: 991px){
   div ul{
     grid-template-columns: 1fr 1fr;
   }
+  form{
+    grid-template-columns: 1fr;
+  }
+  
 }
 
 @media (max-width: 767px){
@@ -96,7 +148,9 @@ div li .url:hover {
   }
 }
 
-@keyframes card {
-  from {opacity: 0;}
-  to {opacity: 1;}
+@media (max-width: 490px){
+  input{
+    width: 280px;
+  }
 }
+
